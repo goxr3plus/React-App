@@ -51,6 +51,25 @@ class App extends Component {
       cursor: 'pointer'
 
     }
+
+    let persons = null
+    if(this.state.showPersons){
+      persons = (
+      <div>
+        <Person 
+          name={this.state.persons[0].name} 
+          age={this.state.persons[0].age}/>
+        <Person 
+          name={this.state.persons[1].name} 
+          age={this.state.persons[1].age}
+          clicker={this.switchNameHandler.bind(this,"Maxy Buxy")}
+          changed={this.nameChangedHandler}> My Hobbies: Racing </Person>
+        <Person 
+          name={this.state.persons[2].name} 
+          age={this.state.persons[2].age}/>
+      </div>
+      );
+     }
     
     return (
       <div className="App">
@@ -65,23 +84,7 @@ class App extends Component {
         <Button onClick={this.togglePersonsHandler}>Toggle Persons</Button>
         <br></br>
         <br></br>
-        { 
-          this.state.showPersons === true ?
-          <div>
-              <Person 
-                name={this.state.persons[0].name} 
-                age={this.state.persons[0].age}/>
-              <Person 
-                name={this.state.persons[1].name} 
-                age={this.state.persons[1].age}
-                clicker={this.switchNameHandler.bind(this,"Maxy Buxy")}
-                changed={this.nameChangedHandler}> My Hobbies: Racing </Person>
-              <Person 
-                name={this.state.persons[2].name} 
-                age={this.state.persons[2].age}/>
-            </div>
-          : null
-          }
+        {persons}
       </div>
     );
 
