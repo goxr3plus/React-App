@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./App.css";
 import Person from "./Person/Person.js";
+import 'bootstrap/dist/css/bootstrap.css';
+import Button from 'react-bootstrap/Button';
 
 class App extends Component {
   state = {
@@ -37,7 +39,7 @@ class App extends Component {
       <div className="App">
         <h1> Super Reactor boy</h1>
         {/* () => this.switchNameHandler("Maximilian" ) This can be inefficient*/}
-        <button onClick={ () => this.switchNameHandler("Maximilian" )}>Switch Name</button>
+        <Button onClick={ () => this.switchNameHandler("Maximilian" )}>Switch Name</Button>
         <Person 
           name={this.state.persons[0].name} 
           age={this.state.persons[0].age}/>
