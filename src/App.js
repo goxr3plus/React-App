@@ -27,7 +27,11 @@ class App extends Component {
       })
   }
   
-  nameChangedHandler = (event) => {
+  nameChangedHandler = (event , id) => {
+    const person = this.state.persons.ffindIndex( p =>{
+     return person.id  === id;
+    });
+
     console.log("ye")
        this.setState( {
        persons: [
@@ -73,7 +77,7 @@ class App extends Component {
                name={person.name} 
                age={person.age}
                click ={() => this.deletePersonHandler(index)}
-               changed = {this.nameChangedHandler}
+               changed = {() => this.nameChangedHandler(index)}
                key = {person.id}> Child element2 </Person>
            }
           )
