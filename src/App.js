@@ -63,16 +63,10 @@ class App extends Component {
    /*---------------------- END Methods ----------------------------*/
 
   render() {
-    const style ={
-      backgroundColor: 'white',
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      cursor: 'pointer'
-    }
 
     /* ------------- Persons ------------- */
     let persons = null
+    let btnClass = '';
     if(this.state.showPersons){
       persons = (
        <div>
@@ -88,15 +82,14 @@ class App extends Component {
         }
        </div>
       );
+
+      btnClass =  clazzes.Red;
      }
     
     return (
       <div className={clazzes.App}>
         <h1> Super Reactor boy</h1>
-        <button style={style} onClick={this.switchNameHandler.bind(this,"Maxy Buxy")}>Switch Name Bootstrap</button>
-        <br></br>
-        <br></br>
-        <Button onClick={this.togglePersonsHandler}>Toggle Persons</Button>
+        <button className={btnClass} onClick={this.togglePersonsHandler}>Toggle Persons</button>
         <br></br>
         <br></br>
         {persons}
