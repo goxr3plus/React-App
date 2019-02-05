@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./App.css";
+import clazzes from "./App.css";
 import Person from "./Person/Person.js";
 import 'bootstrap/dist/css/bootstrap.css';
 import Button from 'react-bootstrap/Button';
@@ -69,7 +69,6 @@ class App extends Component {
       border: '1px solid blue',
       padding: '8px',
       cursor: 'pointer'
-
     }
 
     /* ------------- Persons ------------- */
@@ -92,7 +91,7 @@ class App extends Component {
      }
     
     return (
-      <div className="App">
+      <div className={clazzes.App}>
         <h1> Super Reactor boy</h1>
         <button style={style} onClick={this.switchNameHandler.bind(this,"Maxy Buxy")}>Switch Name Bootstrap</button>
         <br></br>
