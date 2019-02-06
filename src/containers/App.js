@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import clazzes from "./App.css";
-import Person from "../components/Persons/Person/Person.js";
+import Persons from "../components/Persons/Persons";
 import 'bootstrap/dist/css/bootstrap.css';
+import Cockpit from "../components/Cockpit/Cockpit";
 
+
+//  TODO
 class App extends Component {
   state = {
     persons: [
@@ -64,33 +67,29 @@ class App extends Component {
   render() {
 
     /* ------------- Persons ------------- */
-    let persons = null
-    let btnClass = '';
+    let persons = null;
+
     if(this.state.showPersons){
       persons = (
        <div>
-        {this.state.persons.map((person , index) => {
-             return <Person 
-               click ={() => this.deletePersonHandler(index)}            
-               name={person.name} 
-               age={person.age}      
-               key = {person.id}               
-               changed = {(event) => this.nameChangedHandler(event,person.id)}> Child element2 </Person>
-           }
-          )
-        }
+         <Persons
+           persons = {this.state.persons}
+           clicked = {this.deletePersonHandler}
+           changed = {this.nameChangedHandler}
+         />
        </div>
       );
 
-      btnClass =  clazzes.Red;
      }
     
     return (
       <div className={clazzes.App}>
-        <h1> Super Reactor boy</h1>
-        <button className={btnClass} onClick={this.togglePersonsHandler}>Toggle Persons</button>
-        <br></br>
-        <br></br>
+        <Cockpit
+         applicationTitle = {this.props.title}
+         persons = {this.state.persons}
+         showPerson = {this.state.showPersons}
+         togglePersonsHandler = {this.togglePersonsHandler}>
+        </Cockpit>
         {persons}
       </div>
     );
