@@ -1,12 +1,7 @@
 import React from "react";
 import clazzes from "./Person.css"
-import Card from 'react-bootstrap/Card';
 
 const person = props => {
- const random = Math.random();
-
- if(random > 0.7)
-  throw new Error("Something went wrong");
 
   return (
       <div>
