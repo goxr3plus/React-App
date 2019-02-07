@@ -1,12 +1,27 @@
-import React, { Component } from "react";
-import clazzes from "./App.css";
-import Persons from "../components/Persons/Persons";
 import 'bootstrap/dist/css/bootstrap.css';
+import React, { Component } from "react";
 import Cockpit from "../components/Cockpit/Cockpit";
+import Persons from "../components/Persons/Persons";
+import clazzes from "./App.css";
 
 
-//  TODO
+
 class App extends Component {
+
+  constructor(props){
+    super(props);
+    console.log("[App.js] Inside constructor",props)
+  }
+
+  componentWillMount(){
+    console.log("[App.js] Inside componentWillMount",this.props)
+  }
+
+  componentDidMount(){
+    console.log("[App.js] Inside componentDidMount",this.props)
+  }
+
+  
   state = {
     persons: [
       { id :1 , name : "Maxe" , age: 28},
@@ -65,6 +80,7 @@ class App extends Component {
    /*---------------------- END Methods ----------------------------*/
 
   render() {
+    console.log("[App.js] Inside render",this.props)
 
     /* ------------- Persons ------------- */
     let persons = null;
