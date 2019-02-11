@@ -1,12 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.css';
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import Cockpit from "../components/Cockpit/Cockpit";
 import Persons from "../components/Persons/Persons";
 import clazzes from "./App.css";
 
 
 
-class App extends Component {
+class App extends PureComponent {
 
   constructor(props){
     super(props);
@@ -21,10 +21,10 @@ class App extends Component {
     console.log("[App.js] Inside componentDidMount",this.props)
   }
 
-  shouldComponentUpdate(nextProps,nextState){
-    console.log("[UPDATE App.js] Inside shouldComponentUpdate",nextProps,nextState);
-    return nextState.persons !== this.state.persons || nextState.showPersons !== this.state.persons;
-  }
+  // shouldComponentUpdate(nextProps,nextState){
+  //   console.log("[UPDATE App.js] Inside shouldComponentUpdate",nextProps,nextState);
+  //   return nextState.persons !== this.state.persons || nextState.showPersons !== this.state.persons;
+  // }
 
  
   componentWillUpdate(nextProps,nextState){
@@ -43,7 +43,8 @@ class App extends Component {
     ],
     otherState: " Other",
     showPersons: false
-  }
+  } 
+  
 
   /*---------------------- START Methods ----------------------------*/
 
@@ -66,6 +67,8 @@ class App extends Component {
     const person = {
       ...this.state.persons[personIndex]
     };
+
+    console.log("SKLIRO :",person);
 
    
     person.name = event.target.value;
