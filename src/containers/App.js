@@ -3,6 +3,7 @@ import React, { PureComponent } from "react";
 import Cockpit from "../components/Cockpit/Cockpit";
 import Persons from "../components/Persons/Persons";
 import clazzes from "./App.css";
+import WithClass from "../hoc/WithClass"
 
 
 
@@ -115,7 +116,7 @@ class App extends PureComponent {
      }
     
     return (
-      <div className={clazzes.App}>
+      <WithClass classes={clazzes.App}>
         <button onClick={() =>{this.setState({showPersons: true})}}>push me bro</button>
         <Cockpit
          applicationTitle = {this.props.title}
@@ -124,7 +125,7 @@ class App extends PureComponent {
          togglePersonsHandler = {this.togglePersonsHandler}>
         </Cockpit>
         {persons}
-      </div>
+      </WithClass>
     );
   }
 }
