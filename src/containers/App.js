@@ -4,8 +4,9 @@ import Cockpit from "../components/Cockpit/Cockpit";
 import Persons from "../components/Persons/Persons";
 import clazzes from "./App.css";
 import wrappedComponent from "../hoc/WrappedComponent"
+// import Aux from "../hoc/Aux"
 
-
+export const AuthContext = React.createContext(false);
 
 class App extends PureComponent {
 
@@ -44,7 +45,8 @@ class App extends PureComponent {
     ],
     otherState: " Other",
     showPersons: false,
-    toggleClicked: 0
+    toggleClicked: 0,
+    authenticated: false
   } 
   
 
@@ -97,6 +99,10 @@ class App extends PureComponent {
     });
    }
 
+   loginHandler = () =>{
+     this.setState({authenticated: true});
+   }
+
    /*---------------------- END Methods ----------------------------*/
 
   render() {
@@ -106,16 +112,11 @@ class App extends PureComponent {
     let persons = null;
 
     if(this.state.showPersons){
-      persons = (
-       <div>
-         <Persons
+      persons = <Persons
            persons = {this.state.persons}
            clicked = {this.deletePersonHandler}
            changed = {this.nameChangedHandler}
-         />
-       </div>
-      );
-
+         />;
      }
     
     return (
@@ -125,12 +126,13 @@ class App extends PureComponent {
         <Cockpit
          applicationTitle = {this.props.title}
          persons = {this.state.persons}
+         login = {this.loginHandler}  
          showPerson = {this.state.showPersons}
-         togglePersonsHandler = {this.togglePersonsHandler}>
-        </Cockpit>
-        {persons}
-      </>
-     /* </WithClass> */
+         togglePersonsHandler = {this.togglePersonsHandler}
+        />
+        <AuthContext.Provider value={this.state.authenticated}>{persons}</AuthContext.Provider>
+     </>
+     // </WithClass> 
     );
   }
 }

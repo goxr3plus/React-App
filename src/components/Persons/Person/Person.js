@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import clazzes from "./Person.css"
 import wrappedComponent from '../../../hoc/WrappedComponent';
 import PropTypes from 'prop-types';
+// import Aux from "../../../hoc/Aux";
+import { AuthContext } from './../../../containers/App';
 
 
 class Person extends Component{
@@ -29,11 +31,11 @@ class Person extends Component{
         console.log("[Person.js] Inside render",this.props)
         return (
         <>
-            <div className={clazzes.Person}>
+              <AuthContext.Consumer>
+               {auth => auth ? <p>I'm Authenticated!</p> : null}
+              </AuthContext.Consumer>
               <p onClick={this.props.click}>  I'm a {this.props.name} <b>{this.props.age}</b> years old </p>
-              <p>  {this.props.children}</p>
               <input ref={this.inputElement} type="text" onChange={this.props.changed} value={this.props.name}></input>
-            </div>
         </>
         );
     }

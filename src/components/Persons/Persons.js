@@ -44,7 +44,7 @@ class Persons extends PureComponent{
             position = {index}    
             name={person.name} 
             age={person.age}      
-            ref = {this.lastPersonRef}
+            ref = {this.lastPersonRef} 
             key = {person.id}               
             changed = {(event) => this.props.changed(event,person.id)}> Child element2 </Person>
         });
