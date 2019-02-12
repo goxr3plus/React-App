@@ -7,6 +7,15 @@ import clazzes from "./App.css";
 
 
 class App extends Component {
+  state = {
+    persons: [
+      { id :1 , name : "Maxe" , age: 28},
+      { id :2 , name : "Manu" , age: 29},
+      { id :3 ,name : "Stephanie" , age: 26}
+    ],
+    otherState: " Other",
+    showPersons: false
+  }
 
   constructor(props){
     super(props);
@@ -22,15 +31,7 @@ class App extends Component {
   }
 
   
-  state = {
-    persons: [
-      { id :1 , name : "Maxe" , age: 28},
-      { id :2 , name : "Manu" , age: 29},
-      { id :3 ,name : "Stephanie" , age: 26}
-    ],
-    otherState: " Other",
-    showPersons: false
-  }
+  
 
   /*---------------------- START Methods ----------------------------*/
 
@@ -80,6 +81,7 @@ class App extends Component {
    /*---------------------- END Methods ----------------------------*/
 
   render() {
+    console.log(React.version)
     console.log("[App.js] Inside render",this.props)
 
     /* ------------- Persons ------------- */
