@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import clazzes from "./Person.css"
+import wrappedComponent from '../../../hoc/WrappedComponent';
 
 
 class Person extends Component{
@@ -20,15 +21,15 @@ class Person extends Component{
     render(){
         console.log("[Person.js] Inside render",this.props)
         return (
-            <div>
+        <>
             <div className={clazzes.Person}>
-            <p onClick={this.props.click}>  I'm a {this.props.name} <b>{this.props.age}</b> years old </p>
-            <p>  {this.props.children}</p>
-            <input type="text" onChange={this.props.changed} value={this.props.name}></input>
+              <p onClick={this.props.click}>  I'm a {this.props.name} <b>{this.props.age}</b> years old </p>
+              <p>  {this.props.children}</p>
+              <input type="text" onChange={this.props.changed} value={this.props.name}></input>
             </div>
-        </div>
+        </>
         );
     }
 }
 
-export default Person;
+export default wrappedComponent(Person,clazzes.Person);

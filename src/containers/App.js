@@ -3,7 +3,7 @@ import React, { PureComponent } from "react";
 import Cockpit from "../components/Cockpit/Cockpit";
 import Persons from "../components/Persons/Persons";
 import clazzes from "./App.css";
-import WithClass from "../hoc/WithClass"
+import wrappedComponent from "../hoc/WrappedComponent"
 
 
 
@@ -116,7 +116,8 @@ class App extends PureComponent {
      }
     
     return (
-      <WithClass classes={clazzes.App}>
+      // <WithClass classes={clazzes.App}>
+      <>
         <button onClick={() =>{this.setState({showPersons: true})}}>push me bro</button>
         <Cockpit
          applicationTitle = {this.props.title}
@@ -125,9 +126,10 @@ class App extends PureComponent {
          togglePersonsHandler = {this.togglePersonsHandler}>
         </Cockpit>
         {persons}
-      </WithClass>
+      </>
+     /* </WithClass> */
     );
   }
 }
 
-export default App;
+export default wrappedComponent(App,clazzes.App);
