@@ -15,12 +15,13 @@ class App extends PureComponent {
     console.log("[App.js] Inside constructor",props)
   }
 
-  componentWillMount(){
-    console.log("[App.js] Inside componentWillMount",this.props)
-  }
+  // componentWillMount(){
+  //   console.log("[App.js] Inside componentWillMount",this.props)
+  // }
 
   componentDidMount(){
     console.log("[App.js] Inside componentDidMount",this.props)
+    console.log(React.version)
   }
 
   // shouldComponentUpdate(nextProps,nextState){
@@ -29,8 +30,18 @@ class App extends PureComponent {
   // }
 
  
-  componentWillUpdate(nextProps,nextState){
-    console.log("[UPDATE App.js] Inside componentWillUpdate",nextProps,nextState);
+  // componentWillUpdate(nextProps,nextState){
+  //   console.log("[UPDATE App.js] Inside componentWillUpdate",nextProps,nextState);
+  // }
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    console.log("[UPDATE App.js] Inside getDerivedStateFromProps",nextProps,prevState);
+
+    return prevState;
+  }
+
+  getSnapshotBeforeUpdate(){
+    console.log("[UPDATE App.js] Inside getSnapshotBeforeUpdate");
   }
 
   componentDidUpdate(){
