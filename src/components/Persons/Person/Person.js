@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import clazzes from "./Person.css"
 import wrappedComponent from '../../../hoc/WrappedComponent';
+import PropTypes from 'prop-types';
 
 
 class Person extends Component{
@@ -30,6 +31,13 @@ class Person extends Component{
         </>
         );
     }
+}
+
+Person.propTypes = {
+   click: PropTypes.func,
+   name:  PropTypes.string,
+   age:   PropTypes.number,
+   changed:  PropTypes.func
 }
 
 export default wrappedComponent(Person,clazzes.Person);
