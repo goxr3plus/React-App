@@ -24,7 +24,7 @@ class App extends Component {
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    console.log("[App.js] Inside getDerivedStateFromProps \nProps:",nextProps," \nState :",prevState);
+    console.log("[App.js] Inside getDerivedStateFromProps")// \nProps:",nextProps," \nState :",prevState);
    return prevState;
   }
  
@@ -33,7 +33,7 @@ class App extends Component {
   }
 
   shouldComponentUpdate(nextProps,nextState){
-    console.log("[App.js] shouldComponentUpdate \nProps:",nextProps," \nState :",nextState)
+    console.log("[App.js] shouldComponentUpdate")// \nProps:",nextProps," \nState :",nextState)
     return true;
   }
 
