@@ -115,7 +115,7 @@ class App extends Component {
         {this.state.showCockpit ? 
         <Cockpit
          applicationTitle = {this.props.title}
-         persons = {this.state.persons}
+         personsLength = {this.state.persons.length}
          showPerson = {this.state.showPersons}
          togglePersonsHandler = {this.togglePersonsHandler}>
         </Cockpit>
