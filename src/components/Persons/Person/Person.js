@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import clazzes from "./Person.css"
 import Auxiliary from './../../../hoc/Auxiliary';
-import WithClass from './../../../hoc/WithClass';
+import withClass from '../../../hoc/withClass';
 
 
 class Person extends Component{
@@ -13,22 +13,22 @@ class Person extends Component{
     //   componentWillMount(){
     //     console.log("[Person.js] Inside componentWillMount",this.props)
     //   }
-    
+     
     //    componentDidMount(){
     //      console.log("[Person.js] Inside componentDidMount",this.props)
     //    }
 
     
-    render(){
+    render(){   
         console.log("[Person.js] Inside render",this.props)
         return (
-            <WithClass classes={clazzes.Person} >
+            <Auxiliary>
               <p onClick={this.props.click}>  I'm a {this.props.name} <b>{this.props.age}</b> years old </p>
               <p>  {this.props.children}</p>
               <input type="text" onChange={this.props.changed} value={this.props.name}></input>
-            </WithClass>
+            </Auxiliary>
         );
     }
 }
 
-export default Person;
+export default withClass(Person,clazzes.Person);

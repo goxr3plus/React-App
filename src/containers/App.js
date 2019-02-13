@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import Cockpit from "../components/Cockpit/Cockpit";
 import Persons from "../components/Persons/Persons";
 import clazzes from "./App.css";
+import Auxiliary from '../hoc/Auxiliary';
+import withClass from './../hoc/withClass';
 
 
 
@@ -110,7 +112,7 @@ class App extends Component {
      }
     
     return (
-      <div className={clazzes.App}>
+      <Auxiliary>
         <button onClick={() => this.setState({showCockpit:false})}> Remove damn cockpit.js </button>
         {this.state.showCockpit ? 
         <Cockpit
@@ -121,9 +123,9 @@ class App extends Component {
         </Cockpit>
         :null}
         {persons}
-      </div>
+      </Auxiliary>
     );
   }
 }
 
-export default App;
+export default withClass(App,clazzes.App);
