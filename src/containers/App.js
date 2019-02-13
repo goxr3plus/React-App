@@ -30,6 +30,16 @@ class App extends Component {
   componentDidMount(){
     console.log("[App.js] Inside componentDidMount ")
   }
+
+  shouldComponentUpdate(nextProps,nextState){
+    console.log("[App.js] shouldComponentUpdate \nProps:",nextProps," \nState :",nextState)
+    return true;
+  }
+
+  componentDidUpdate(prevProps,prevState,snapshot){
+    console.log("[App.js] componentDidUpdate")
+    console.log(snapshot);
+  }
   
 
   /*---------------------- START Methods ----------------------------*/

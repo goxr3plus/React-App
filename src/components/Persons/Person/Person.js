@@ -12,9 +12,9 @@ class Person extends Component{
     //     console.log("[Person.js] Inside componentWillMount",this.props)
     //   }
     
-    //   componentDidMount(){
-    //     console.log("[Person.js] Inside componentDidMount",this.props)
-    //   }
+    //    componentDidMount(){
+    //      console.log("[Person.js] Inside componentDidMount",this.props)
+    //    }
 
     
     render(){
