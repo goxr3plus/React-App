@@ -2,22 +2,27 @@ import React, { Component } from 'react'
 import Person from './Person/Person'
 
 class Persons extends Component{
-    constructor(props){
-        super(props);
-        console.log("[Persons.js] Inside constructor",props)
-      }
-    
-      componentWillMount(){
-        console.log("[Persons.js] Inside componentWillMount",this.props)
-      }
-    
-      componentDidMount(){
-        console.log("[Persons.js] Inside componentDidMount",this.props)
-      }
 
+    static getDerivedStateFromProps(nextProps, prevState) {
+      console.log("[Persons.js] getDerivedStateFromProps \nProps:",nextProps," \nState :",prevState)
+      return prevState;
+    }
+  
+    shouldComponentUpdate(nextProps,nextState){
+      console.log("[Persons.js] shouldComponentUpdate \nProps:",nextProps," \nState :",nextState)
+      return true;
+    }
+
+    getSnapshotBeforeUpdate(prevProps,prevState){
+      console.log("[Persons.js] getSnapshotBeforeUpdate \nProps:",prevProps," \nState :",prevState)
+    }
+
+    componentDidUpdate(){
+      console.log("[Persons.js] componentDidUpdate")
+    }
     
     render(){
-        console.log("[Persons.js] Inside render",this.props)
+        console.log("[Persons.js] rendering...")
         return this.props.persons.map((person , index) => {
             return <Person 
             click ={() => this.props.clicked(index)}            

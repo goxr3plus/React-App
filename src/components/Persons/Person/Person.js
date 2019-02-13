@@ -3,18 +3,18 @@ import clazzes from "./Person.css"
 
 
 class Person extends Component{
-    constructor(props){
-        super(props);
-        console.log("[Person.js] Inside constructor",props)
-      }
+    // constructor(props){
+    //     super(props);
+    //     console.log("[Person.js] Inside constructor",props)
+    //   }
     
-      componentWillMount(){
-        console.log("[Person.js] Inside componentWillMount",this.props)
-      }
+    //   componentWillMount(){
+    //     console.log("[Person.js] Inside componentWillMount",this.props)
+    //   }
     
-      componentDidMount(){
-        console.log("[Person.js] Inside componentDidMount",this.props)
-      }
+    //   componentDidMount(){
+    //     console.log("[Person.js] Inside componentDidMount",this.props)
+    //   }
 
     
     render(){

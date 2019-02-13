@@ -22,15 +22,14 @@ class App extends Component {
     console.log("[App.js] Inside constructor",props)
   }
 
-  componentWillMount(){
-    console.log("[App.js] Inside componentWillMount",this.props)
+  static getDerivedStateFromProps(nextProps, prevState) {
+    console.log("[App.js] Inside getDerivedStateFromProps \nProps:",nextProps," \nState :",prevState);
+   return prevState;
   }
-
+ 
   componentDidMount(){
-    console.log("[App.js] Inside componentDidMount",this.props)
+    console.log("[App.js] Inside componentDidMount ")
   }
-
-  
   
 
   /*---------------------- START Methods ----------------------------*/
@@ -81,8 +80,7 @@ class App extends Component {
    /*---------------------- END Methods ----------------------------*/
 
   render() {
-    console.log(React.version)
-    console.log("[App.js] Inside render",this.props)
+    console.log("[App.js] Inside render")
 
     /* ------------- Persons ------------- */
     let persons = null;
