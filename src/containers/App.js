@@ -11,13 +11,14 @@ import withClass from './../hoc/withClass';
 class App extends Component {
   state = {
     persons: [
-      { id :1 , name : "Maxe" , age: 28},
+      { id :1 , name : "Maxe" , age: 28}, 
       { id :2 , name : "Manu" , age: 29},
       { id :3 ,name : "Stephanie" , age: 26}
     ],
     otherState: " Other",
     showPersons: false ,
-    showCockpit: true
+    showCockpit: true ,
+    changeCounter: 1
   }
 
   constructor(props){
@@ -73,7 +74,9 @@ class App extends Component {
     const persons = [...this.state.persons];
     persons[personIndex] = person;
 
-    this.setState({persons: persons});
+    this.setState((prevState,props)=>{
+      return {persons: persons,changeCounter: prevState.changeCounter+1}
+    });
     
    }
 
@@ -113,6 +116,7 @@ class App extends Component {
     
     return (
       <Auxiliary>
+        <p>Counter: {this.state.changeCounter}</p>
         <button onClick={() => this.setState({showCockpit:false})}> Remove damn cockpit.js </button>
         {this.state.showCockpit ? 
         <Cockpit
