@@ -14,12 +14,13 @@ class App extends Component {
       { id :3 ,name : "Stephanie" , age: 26}
     ],
     otherState: " Other",
-    showPersons: false
+    showPersons: false ,
+    showCockpit: true
   }
 
   constructor(props){
     super(props);
-    console.log("[App.js] Inside constructor",props)
+    console.log("[App.js] Inside constructor")
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -110,12 +111,15 @@ class App extends Component {
     
     return (
       <div className={clazzes.App}>
+        <button onClick={() => this.setState({showCockpit:false})}> Remove damn cockpit.js </button>
+        {this.state.showCockpit ? 
         <Cockpit
          applicationTitle = {this.props.title}
          persons = {this.state.persons}
          showPerson = {this.state.showPersons}
          togglePersonsHandler = {this.togglePersonsHandler}>
         </Cockpit>
+        :null}
         {persons}
       </div>
     );

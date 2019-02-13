@@ -3,10 +3,10 @@ import Person from './Person/Person'
 
 class Persons extends Component{
 
-    static getDerivedStateFromProps(nextProps, prevState) {
-      console.log("[Persons.js] getDerivedStateFromProps \nProps:",nextProps," \nState :",prevState)
-      return prevState;
-    }
+    // static getDerivedStateFromProps(nextProps, prevState) {
+    //   console.log("[Persons.js] getDerivedStateFromProps \nProps:",nextProps," \nState :",prevState)
+    //   return prevState;
+    // }
   
     shouldComponentUpdate(nextProps,nextState){
       console.log("[Persons.js] shouldComponentUpdate \nProps:",nextProps," \nState :",nextState)
