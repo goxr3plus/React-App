@@ -6,18 +6,20 @@ import PropTypes from 'prop-types';
 
 
 class Person extends Component{
-    // constructor(props){
-    //     super(props);
-    //     console.log("[Person.js] Inside constructor",props)
-    //   }
+    constructor(props){
+        super(props);
+        console.log("[Person.js] Inside constructor",props)
+        this.inputElement = React.createRef();  
+      }
     
     //   componentWillMount(){
     //     console.log("[Person.js] Inside componentWillMount",this.props)
     //   }
      
-    //    componentDidMount(){
-    //      console.log("[Person.js] Inside componentDidMount",this.props)
-    //    }
+       componentDidMount(){
+         console.log("[Person.js] Inside componentDidMount",this.props)
+         this.inputElement.current.focus();
+       }
 
     
     render(){   
@@ -26,7 +28,7 @@ class Person extends Component{
             <Auxiliary>
               <p onClick={this.props.click}>  I'm a {this.props.name} <b>{this.props.age}</b> years old </p>
               <p>  {this.props.children}</p>
-              <input type="text" onChange={this.props.changed} value={this.props.name}></input>
+              <input type="text" ref={this.inputElement} onChange={this.props.changed} value={this.props.name}></input>
             </Auxiliary>
         );
     }
