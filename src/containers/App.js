@@ -18,7 +18,8 @@ class App extends Component {
     otherState: " Other",
     showPersons: false ,
     showCockpit: true ,
-    changeCounter: 1
+    changeCounter: 1 ,
+    authenticated: false
   }
 
   constructor(props){
@@ -47,6 +48,10 @@ class App extends Component {
   
 
   /*---------------------- START Methods ----------------------------*/
+
+  loginHandler = () =>{
+    this.setState({authenticated: true})
+  }
 
   switchNameHandler = (newName) => {
       this.setState( {
@@ -103,13 +108,14 @@ class App extends Component {
 
     if(this.state.showPersons){
       persons = (
-       <div>
+       <Auxiliary>
          <Persons
            persons = {this.state.persons}
            clicked = {this.deletePersonHandler}
            changed = {this.nameChangedHandler}
+           auth = {this.state.authenticated}
          />
-       </div>
+       </Auxiliary>
       );
 
      }
@@ -123,7 +129,8 @@ class App extends Component {
          applicationTitle = {this.props.title}
          personsLength = {this.state.persons.length}
          showPerson = {this.state.showPersons}
-         togglePersonsHandler = {this.togglePersonsHandler}>
+         togglePersonsHandler = {this.togglePersonsHandler}
+         login={this.loginHandler}>
         </Cockpit>
         :null}
         {persons}
