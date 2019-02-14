@@ -3,6 +3,7 @@ import clazzes from "./Person.css"
 import Auxiliary from './../../../hoc/Auxiliary';
 import withClass from '../../../hoc/withClass';
 import PropTypes from 'prop-types';
+import AuthContext from './../../../context/auth-context';
 
 
 class Person extends Component{
@@ -26,7 +27,9 @@ class Person extends Component{
         console.log("[Person.js] Inside render",this.props)
         return (
             <Auxiliary>
-              {this.props.auth ? <p> Is Athenticated !! </p> : <p> Please log in</p>}
+              <AuthContext.Consumer>
+                {(context) => context.authenticated ? <p> Is Athenticated !! </p> : <p> Please log in</p> }
+              </AuthContext.Consumer> 
               <p onClick={this.props.click}>  I'm a {this.props.name} <b>{this.props.age}</b> years old </p>
               <p>  {this.props.children}</p>
               <input type="text" ref={this.inputElement} onChange={this.props.changed} value={this.props.name}></input>
